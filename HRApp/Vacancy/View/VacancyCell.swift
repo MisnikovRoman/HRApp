@@ -19,9 +19,7 @@ class VacancyCell: UITableViewCell {
     }
     
     func setup(withModel model: Vacancy) {
-        
-        let attributedString = model.description.convertHtml()
-        nameLbl.attributedText = attributedString
+        nameLbl.text = model.title
         cityLbl.text = model.location
         typeLbl.text = model.type
     }

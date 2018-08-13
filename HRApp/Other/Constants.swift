@@ -13,3 +13,6 @@ let JSON_URL = "https://jobs.github.com/positions.json?search=android&page=0"
 
 // Vacancies TableView constants
 let VACANCY_CELL = "vacancyCell"
+
+// Segues constants
+let DESCRIPTION_SEGUE = "descriptionSegue"

@@ -10,7 +10,11 @@ import UIKit
 
 class VacanciesVC: UIViewController {
 
-    private var vacancies: [Vacancy] = []
+    private var vacancies: [Vacancy] = [] {
+        didSet {
+            vacanciesTableView.reloadData()
+        }
+    }
 
     @IBOutlet weak var vacanciesTableView: UITableView!
     
@@ -24,17 +28,26 @@ class VacanciesVC: UIViewController {
                 guard let vacancies = data as? [Vacancy] else { return }
                 vacancies.forEach { $0.printDescription() }
                 self.vacancies = vacancies
-                self.vacanciesTableView.reloadData()
             case .failure(let error):
                 print(error)
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == DESCRIPTION_SEGUE else { return }
+        guard let descriptionVC = segue.destination as? DescriptionVC else { return }
+        guard let selectedVacancy = sender as? Vacancy else { return }
+        descriptionVC.vacancyDescription = selectedVacancy.description.convertHtml()
+    }
 
 }
 
 extension VacanciesVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedVacancy = vacancies[indexPath.row]
+        performSegue(withIdentifier: DESCRIPTION_SEGUE, sender: selectedVacancy)
+    }
 }
 
 extension VacanciesVC: UITableViewDataSource {

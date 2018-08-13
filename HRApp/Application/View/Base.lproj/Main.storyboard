@@ -80,27 +80,45 @@
                     <navigationItem key="navigationItem" title="IT vacancies" id="93k-TO-tY6"/>
                     <connections>
                         <outlet property="vacanciesTableView" destination="GdG-We-zl3" id="ecD-uK-c4j"/>
-                        <segue destination="xhm-B7-COS" kind="show" id="91Y-GT-J29"/>
+                        <segue destination="xhm-B7-COS" kind="show" identifier="descriptionSegue" id="91Y-GT-J29"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="701.60000000000002" y="-581.55922038980509"/>
         </scene>
-        <!--View Controller-->
+        <!--DescriptionVC-->
         <scene sceneID="xpO-H1-Iep">
             <objects>
-                <viewController id="xhm-B7-COS" sceneMemberID="viewController">
+                <viewController id="xhm-B7-COS" customClass="DescriptionVC" customModule="HRApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R3U-XZ-DW0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vh5-QG-SvX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vh5-QG-SvX" firstAttribute="top" secondItem="T76-Q4-Y8T" secondAttribute="top" id="0yk-jT-j3w"/>
+                            <constraint firstItem="vh5-QG-SvX" firstAttribute="bottom" secondItem="T76-Q4-Y8T" secondAttribute="bottom" id="3aW-7n-rwM"/>
+                            <constraint firstItem="vh5-QG-SvX" firstAttribute="leading" secondItem="T76-Q4-Y8T" secondAttribute="leading" id="HYX-tr-lgz"/>
+                            <constraint firstItem="vh5-QG-SvX" firstAttribute="trailing" secondItem="T76-Q4-Y8T" secondAttribute="trailing" id="lMc-Kq-rWt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="T76-Q4-Y8T"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="vh5-QG-SvX" id="AHy-fj-Hge"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVU-AX-c3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="-581"/>
+            <point key="canvasLocation" x="1580" y="-581.55922038980509"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SD6-xV-BIj">
