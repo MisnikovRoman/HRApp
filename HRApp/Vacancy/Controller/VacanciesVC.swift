@@ -33,7 +33,6 @@ class VacanciesVC: UIViewController {
 
 }
 
-
 extension VacanciesVC: UITableViewDelegate {
     
 }

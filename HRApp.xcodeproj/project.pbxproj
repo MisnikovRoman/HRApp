@@ -17,6 +17,7 @@
 		C8E2D4D62121C2AF00089781 /* VacancyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4D52121C2AF00089781 /* VacancyCell.swift */; };
 		C8E2D4D92121C48A00089781 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4D82121C48A00089781 /* NetworkService.swift */; };
 		C8E2D4DB2121C5C600089781 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4DA2121C5C600089781 /* NetworkError.swift */; };
+		C8E2D4DE2121CCFF00089781 /* String + ConvertHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4DD2121CCFF00089781 /* String + ConvertHTML.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C8E2D4D52121C2AF00089781 /* VacancyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCell.swift; sourceTree = "<group>"; };
 		C8E2D4D82121C48A00089781 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C8E2D4DA2121C5C600089781 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C8E2D4DD2121CCFF00089781 /* String + ConvertHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + ConvertHTML.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				C8E2D4C72121BA0200089781 /* View */,
 				C8E2D4C62121B9FB00089781 /* Controller */,
 				C8E2D4D72121C44000089781 /* Services */,
+				C8E2D4DC2121CCCA00089781 /* Extensions */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -167,6 +170,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		C8E2D4DC2121CCCA00089781 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C8E2D4DD2121CCFF00089781 /* String + ConvertHTML.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +254,7 @@
 				C8E2D4B32121B91000089781 /* AppDelegate.swift in Sources */,
 				C8E2D4D12121BF6000089781 /* Vacancy.swift in Sources */,
 				C8E2D4D62121C2AF00089781 /* VacancyCell.swift in Sources */,
+				C8E2D4DE2121CCFF00089781 /* String + ConvertHTML.swift in Sources */,
 				C8E2D4D92121C48A00089781 /* NetworkService.swift in Sources */,
 				C8E2D4D42121BFD600089781 /* Constants.swift in Sources */,
 			);
