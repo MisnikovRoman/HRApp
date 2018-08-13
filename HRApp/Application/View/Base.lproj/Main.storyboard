@@ -79,6 +79,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="IT vacancies" id="93k-TO-tY6"/>
                     <connections>
+                        <outlet property="vacanciesTableView" destination="GdG-We-zl3" id="ecD-uK-c4j"/>
                         <segue destination="xhm-B7-COS" kind="show" id="91Y-GT-J29"/>
                     </connections>
                 </viewController>
