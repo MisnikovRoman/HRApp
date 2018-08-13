@@ -14,6 +14,9 @@
 		C8E2D4CE2121BCC200089781 /* VacanciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4CD2121BCC200089781 /* VacanciesVC.swift */; };
 		C8E2D4D12121BF6000089781 /* Vacancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4D02121BF6000089781 /* Vacancy.swift */; };
 		C8E2D4D42121BFD600089781 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4D32121BFD600089781 /* Constants.swift */; };
+		C8E2D4D62121C2AF00089781 /* VacancyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4D52121C2AF00089781 /* VacancyCell.swift */; };
+		C8E2D4D92121C48A00089781 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4D82121C48A00089781 /* NetworkService.swift */; };
+		C8E2D4DB2121C5C600089781 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4DA2121C5C600089781 /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		C8E2D4CD2121BCC200089781 /* VacanciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesVC.swift; sourceTree = "<group>"; };
 		C8E2D4D02121BF6000089781 /* Vacancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vacancy.swift; sourceTree = "<group>"; };
 		C8E2D4D32121BFD600089781 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C8E2D4D52121C2AF00089781 /* VacancyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCell.swift; sourceTree = "<group>"; };
+		C8E2D4D82121C48A00089781 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C8E2D4DA2121C5C600089781 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 				C8E2D4C82121BA0900089781 /* Model */,
 				C8E2D4C72121BA0200089781 /* View */,
 				C8E2D4C62121B9FB00089781 /* Controller */,
+				C8E2D4D72121C44000089781 /* Services */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -106,6 +113,7 @@
 		C8E2D4C82121BA0900089781 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C8E2D4DA2121C5C600089781 /* NetworkError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,6 +129,7 @@
 		C8E2D4CA2121BA1600089781 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C8E2D4D52121C2AF00089781 /* VacancyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +157,14 @@
 				C8E2D4D32121BFD600089781 /* Constants.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		C8E2D4D72121C44000089781 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C8E2D4D82121C48A00089781 /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8E2D4CE2121BCC200089781 /* VacanciesVC.swift in Sources */,
+				C8E2D4DB2121C5C600089781 /* NetworkError.swift in Sources */,
 				C8E2D4B32121B91000089781 /* AppDelegate.swift in Sources */,
 				C8E2D4D12121BF6000089781 /* Vacancy.swift in Sources */,
+				C8E2D4D62121C2AF00089781 /* VacancyCell.swift in Sources */,
+				C8E2D4D92121C48A00089781 /* NetworkService.swift in Sources */,
 				C8E2D4D42121BFD600089781 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

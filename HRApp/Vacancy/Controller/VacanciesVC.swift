@@ -12,6 +12,17 @@ class VacanciesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let url = URL(string: JSON_URL) else { return }
+        NetworkService.shared.getData(url: url) { (result) in
+            switch result {
+            case .success(let data):
+                guard let vacancies = data as? [Vacancy] else { return }
+                vacancies.forEach { $0.printDescription() }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
 }
