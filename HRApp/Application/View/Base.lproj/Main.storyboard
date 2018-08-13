@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vacancyCell" rowHeight="75" id="v65-pZ-zef">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="vacancyCell" rowHeight="75" id="v65-pZ-zef" customClass="VacancyCell" customModule="HRApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v65-pZ-zef" id="L5e-7A-C7H">
@@ -61,6 +61,11 @@
                                                 <constraint firstItem="bKl-XT-mFY" firstAttribute="leading" secondItem="L5e-7A-C7H" secondAttribute="leadingMargin" id="qnu-oC-Pah"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityLbl" destination="bKl-XT-mFY" id="ioS-RI-AOk"/>
+                                            <outlet property="nameLbl" destination="y7w-18-tNJ" id="cgC-cz-OJX"/>
+                                            <outlet property="typeLbl" destination="936-FD-QQ8" id="I0W-oS-eWh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
