@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C8250BB42121DFBC00B65607 /* DescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8250BB32121DFBC00B65607 /* DescriptionVC.swift */; };
+		C8250BB62122CD7800B65607 /* UIColor + hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8250BB52122CD7800B65607 /* UIColor + hexString.swift */; };
 		C8E2D4B32121B91000089781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4B22121B91000089781 /* AppDelegate.swift */; };
 		C8E2D4B82121B91000089781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E2D4B62121B91000089781 /* Main.storyboard */; };
 		C8E2D4BA2121B91100089781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E2D4B92121B91100089781 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		C8250BB32121DFBC00B65607 /* DescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionVC.swift; sourceTree = "<group>"; };
+		C8250BB52122CD7800B65607 /* UIColor + hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString.swift"; sourceTree = "<group>"; };
 		C8E2D4AF2121B91000089781 /* HRApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E2D4B22121B91000089781 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8E2D4B72121B91000089781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		C8E2D4DC2121CCCA00089781 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C8250BB52122CD7800B65607 /* UIColor + hexString.swift */,
 				C8E2D4DD2121CCFF00089781 /* String + ConvertHTML.swift */,
 			);
 			path = Extensions;
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8250BB62122CD7800B65607 /* UIColor + hexString.swift in Sources */,
 				C8E2D4CE2121BCC200089781 /* VacanciesVC.swift in Sources */,
 				C8250BB42121DFBC00B65607 /* DescriptionVC.swift in Sources */,
 				C8E2D4DB2121C5C600089781 /* NetworkError.swift in Sources */,
@@ -409,6 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JJHX98NUDV;
 				INFOPLIST_FILE = "$(SRCROOT)/HRApp/Supporting files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,6 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JJHX98NUDV;
 				INFOPLIST_FILE = "$(SRCROOT)/HRApp/Supporting files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

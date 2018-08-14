@@ -6,7 +6,7 @@
 //  Copyright © 2018 Роман Мисников. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // URL constants
 let JSON_URL = "https://jobs.github.com/positions.json?search=android&page=0"
@@ -16,3 +16,6 @@ let VACANCY_CELL = "vacancyCell"
 
 // Segues constants
 let DESCRIPTION_SEGUE = "descriptionSegue"
+
+// Font constants
+let CSS_FONT_NAME = "-apple-font"

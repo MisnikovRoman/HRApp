@@ -12,6 +12,7 @@ class VacanciesVC: UIViewController {
 
     private var vacancies: [Vacancy] = [] {
         didSet {
+            print("⚠️ DATA UPDATING")
             vacanciesTableView.reloadData()
         }
     }
@@ -23,11 +24,14 @@ class VacanciesVC: UIViewController {
         
         guard let url = URL(string: JSON_URL) else { return }
         NetworkService.shared.getData(url: url) { (result) in
+            print("⚠️ DATA LOADED")
             switch result {
             case .success(let data):
                 guard let vacancies = data as? [Vacancy] else { return }
                 vacancies.forEach { $0.printDescription() }
-                self.vacancies = vacancies
+                DispatchQueue.main.async {
+                    self.vacancies = vacancies
+                }
             case .failure(let error):
                 print(error)
             }
@@ -38,7 +42,7 @@ class VacanciesVC: UIViewController {
         guard segue.identifier == DESCRIPTION_SEGUE else { return }
         guard let descriptionVC = segue.destination as? DescriptionVC else { return }
         guard let selectedVacancy = sender as? Vacancy else { return }
-        descriptionVC.vacancyDescription = selectedVacancy.description.convertHtml()
+        descriptionVC.vacancyDescription = selectedVacancy.description.htmlAttributed(fontName: CSS_FONT_NAME, size: 17, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
 
 }

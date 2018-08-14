@@ -17,6 +17,7 @@ class DescriptionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Description"
         textView.attributedText = vacancyDescription
     }
 

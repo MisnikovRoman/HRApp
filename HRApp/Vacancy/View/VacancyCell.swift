@@ -12,7 +12,8 @@ class VacancyCell: UITableViewCell {
 
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var cityLbl: UILabel!
-    @IBOutlet weak var typeLbl: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +22,6 @@ class VacancyCell: UITableViewCell {
     func setup(withModel model: Vacancy) {
         nameLbl.text = model.title
         cityLbl.text = model.location
-        typeLbl.text = model.type
     }
 
 }
