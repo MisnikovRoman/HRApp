@@ -6,17 +6,29 @@
 //  Copyright © 2018 Роман Мисников. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String{
-    func convertHtml() -> NSAttributedString{
-        guard let data = data(using: .utf8) else { return NSAttributedString() }
-        do{
+    func htmlAttributed(fontName: String, size: Float, color: UIColor) -> NSAttributedString? {
+        do {
+            let htmlCSSString = "<style>" +
+                "html *" +
+                "{" +
+                "font-size: \(size)pt !important;" +
+                "color: #\(color.hexString ?? "000000") !important;" +
+                "font-family: \(fontName), -apple-system, Helvetica !important;" +
+            "}</style> \(self)"
+            
+            print("CSS:", htmlCSSString)
+            
+            guard let data = htmlCSSString.data(using: String.Encoding.utf8) else { return nil }
             return try NSAttributedString(data: data,
-                                          options: [.documentType : NSAttributedString.DocumentType.html],
+                                          options: [.documentType: NSAttributedString.DocumentType.html,
+                                                    .characterEncoding: String.Encoding.utf8.rawValue],
                                           documentAttributes: nil)
-         } catch{
-            return NSAttributedString()
+        } catch {
+            print("error: ", error)
+            return nil
         }
     }
 }
