@@ -10,6 +10,7 @@
 		04E9BCC8C3A9266740E77FF6 /* Pods_HRApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDE5C432EC2190A94B73118E /* Pods_HRApp.framework */; };
 		C8250BB42121DFBC00B65607 /* DescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8250BB32121DFBC00B65607 /* DescriptionVC.swift */; };
 		C8250BB62122CD7800B65607 /* UIColor + hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8250BB52122CD7800B65607 /* UIColor + hexString.swift */; };
+		C8D3541C21230583001CAE90 /* VacanciesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D3541B21230583001CAE90 /* VacanciesService.swift */; };
 		C8E2D4B32121B91000089781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E2D4B22121B91000089781 /* AppDelegate.swift */; };
 		C8E2D4B82121B91000089781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E2D4B62121B91000089781 /* Main.storyboard */; };
 		C8E2D4BA2121B91100089781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E2D4B92121B91100089781 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		058716BDC4548DF019A52D13 /* Pods-HRApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HRApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HRApp/Pods-HRApp.release.xcconfig"; sourceTree = "<group>"; };
 		C8250BB32121DFBC00B65607 /* DescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionVC.swift; sourceTree = "<group>"; };
 		C8250BB52122CD7800B65607 /* UIColor + hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString.swift"; sourceTree = "<group>"; };
+		C8D3541B21230583001CAE90 /* VacanciesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacanciesService.swift; sourceTree = "<group>"; };
 		C8E2D4AF2121B91000089781 /* HRApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E2D4B22121B91000089781 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8E2D4B72121B91000089781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 				CDE5C432EC2190A94B73118E /* Pods_HRApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8D3541A21230559001CAE90 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C8D3541B21230583001CAE90 /* VacanciesService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C8E2D4A62121B90F00089781 = {
@@ -108,6 +118,7 @@
 		C8E2D4C52121B9E500089781 /* Vacancy */ = {
 			isa = PBXGroup;
 			children = (
+				C8D3541A21230559001CAE90 /* Services */,
 				C8E2D4CB2121BA1B00089781 /* Model */,
 				C8E2D4CA2121BA1600089781 /* View */,
 				C8E2D4C92121BA1100089781 /* Controller */,
@@ -338,6 +349,7 @@
 			files = (
 				C8250BB62122CD7800B65607 /* UIColor + hexString.swift in Sources */,
 				C8E2D4CE2121BCC200089781 /* VacanciesVC.swift in Sources */,
+				C8D3541C21230583001CAE90 /* VacanciesService.swift in Sources */,
 				C8250BB42121DFBC00B65607 /* DescriptionVC.swift in Sources */,
 				C8E2D4DB2121C5C600089781 /* NetworkError.swift in Sources */,
 				C8E2D4B32121B91000089781 /* AppDelegate.swift in Sources */,
@@ -496,7 +508,10 @@
 				DEVELOPMENT_TEAM = JJHX98NUDV;
 				INFOPLIST_FILE = "$(SRCROOT)/HRApp/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RFMisnikov.HRApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -513,7 +528,10 @@
 				DEVELOPMENT_TEAM = JJHX98NUDV;
 				INFOPLIST_FILE = "$(SRCROOT)/HRApp/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RFMisnikov.HRApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

@@ -9,7 +9,7 @@
 import UIKit
 
 // URL constants
-let JSON_URL = "https://jobs.github.com/positions.json?search=android&page=0"
+let JSON_BASE_URL = "https://jobs.github.com/positions.json?search="
 
 // Vacancies TableView constants
 let VACANCY_CELL = "vacancyCell"
@@ -19,3 +19,6 @@ let DESCRIPTION_SEGUE = "descriptionSegue"
 
 // Font constants
 let CSS_FONT_NAME = "-apple-font"
+
+// Searcg constants
+let DEFAULT_SEARCH = "android"

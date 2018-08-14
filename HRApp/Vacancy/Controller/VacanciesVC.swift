@@ -12,27 +12,38 @@ class VacanciesVC: UIViewController {
 
     private var vacancies: [Vacancy] = [] {
         didSet {
-            print("⚠️ DATA UPDATING")
             vacanciesTableView.reloadData()
         }
     }
+    private var vacanciesPage: Int = 0
 
     @IBOutlet weak var vacanciesTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadVacancies(forSearchText: "android", atPage: 0)
+    }
+    
+    func loadVacancies(forSearchText text: String, atPage page: Int) {
+        if page == 0 {
+            vacanciesPage = 0
+            vacancies = []
+        }
+        // create url from input data
+        let fullUrlString = JSON_BASE_URL + "\(text)&page=\(page)"
+        guard let url = URL(string: fullUrlString) else { return }
         
-        guard let url = URL(string: JSON_URL) else { return }
+        // data loading
         NetworkService.shared.getData(url: url) { (result) in
-            print("⚠️ DATA LOADED")
             switch result {
             case .success(let data):
                 guard let vacancies = data as? [Vacancy] else { return }
-                vacancies.forEach { $0.printDescription() }
                 DispatchQueue.main.async {
-                    self.vacancies = vacancies
+                    self.vacancies += vacancies
+                    if vacancies.count != 0 { self.vacanciesPage += 1 }
                 }
-            case .failure(let error):
+             case .failure(let error):
                 print(error)
             }
         }
@@ -44,13 +55,23 @@ class VacanciesVC: UIViewController {
         guard let selectedVacancy = sender as? Vacancy else { return }
         descriptionVC.vacancyDescription = selectedVacancy.description.htmlAttributed(fontName: CSS_FONT_NAME, size: 17, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
-
 }
 
 extension VacanciesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedVacancy = vacancies[indexPath.row]
         performSegue(withIdentifier: DESCRIPTION_SEGUE, sender: selectedVacancy)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == vacancies.count - 1 {
+            // check search
+            guard var searchText = searchBar.text else { return }
+            guard vacanciesPage != 0 else { return }
+            
+            if searchText == "" { searchText = DEFAULT_SEARCH }
+            loadVacancies(forSearchText: searchText, atPage: vacanciesPage)
+        }
     }
 }
 
@@ -64,6 +85,17 @@ extension VacanciesVC: UITableViewDataSource {
         cell.setup(withModel: vacancies[indexPath.row])
         return cell
     }
+}
+
+extension VacanciesVC: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        loadVacancies(forSearchText: text, atPage: 0)
+    }
     
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        loadVacancies(forSearchText: text, atPage: 0)
+        searchBar.resignFirstResponder()
+    }
 }
