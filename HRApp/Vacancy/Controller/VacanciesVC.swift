@@ -28,11 +28,7 @@ class VacanciesVC: UIViewController {
         loadVacancies(forSearchText: "android", atPage: 0)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // hide keyboard when view is touched
-        searchBar.resignFirstResponder()
-    }
-    
+    // MARK: - Functiones
     func loadVacancies(forSearchText text: String, atPage page: Int) {
         activityIndicator.startAnimating()
         if page == 0 {
@@ -71,20 +67,21 @@ class VacanciesVC: UIViewController {
 }
 
 extension VacanciesVC: UITableViewDelegate {
+    // select row and segue to description vc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedVacancy = vacancies[indexPath.row]
         performSegue(withIdentifier: DESCRIPTION_SEGUE, sender: selectedVacancy)
     }
     
+    // update data model at the end of list
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == vacancies.count - 1 {
-            // check search
+            // check aviability and entered text
             guard updateAvilable else { return }
             guard var searchText = searchBar.text else { return }
             guard vacanciesPage != 0 else { return }
             
             if searchText == "" { searchText = DEFAULT_SEARCH }
-            print("❗️ curr page: \(vacanciesPage)")
             updateAvilable = false
             loadVacancies(forSearchText: searchText, atPage: vacanciesPage)
         }
@@ -92,10 +89,12 @@ extension VacanciesVC: UITableViewDelegate {
 }
 
 extension VacanciesVC: UITableViewDataSource {
+    // configure cell count
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return vacancies.count
     }
     
+    // confugure cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VACANCY_CELL, for: indexPath) as? VacancyCell else { return UITableViewCell() }
         cell.setup(withModel: vacancies[indexPath.row])
@@ -104,11 +103,7 @@ extension VacanciesVC: UITableViewDataSource {
 }
 
 extension VacanciesVC: UISearchBarDelegate {
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text else { return }
-        loadVacancies(forSearchText: text, atPage: 0)
-    }
-    
+    // begin search and hide keyboard
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
         loadVacancies(forSearchText: text, atPage: 0)
