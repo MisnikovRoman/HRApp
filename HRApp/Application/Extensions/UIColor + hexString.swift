@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIColor {
+    // convert color to CSS hex format
     var hexString:String? {
         
         if let components = self.cgColor.components {
