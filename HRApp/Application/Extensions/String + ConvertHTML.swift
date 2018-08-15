@@ -19,8 +19,6 @@ extension String{
                 "font-family: \(fontName), -apple-system, Helvetica !important;" +
             "}</style> \(self)"
             
-            print("CSS:", htmlCSSString)
-            
             guard let data = htmlCSSString.data(using: String.Encoding.utf8) else { return nil }
             return try NSAttributedString(data: data,
                                           options: [.documentType: NSAttributedString.DocumentType.html,

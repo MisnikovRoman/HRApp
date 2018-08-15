@@ -10,22 +10,31 @@ import UIKit
 
 class VacanciesVC: UIViewController {
 
+    // MARK: - Variables
     private var vacancies: [Vacancy] = [] {
-        didSet {
-            vacanciesTableView.reloadData()
-        }
+        didSet { vacanciesTableView.reloadData() }
     }
     private var vacanciesPage: Int = 0
-
+    private var updateAvilable = false
+    
+    // MARK: - Outlets
     @IBOutlet weak var vacanciesTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: - VC lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         loadVacancies(forSearchText: "android", atPage: 0)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // hide keyboard when view is touched
+        searchBar.resignFirstResponder()
+    }
+    
     func loadVacancies(forSearchText text: String, atPage page: Int) {
+        activityIndicator.startAnimating()
         if page == 0 {
             vacanciesPage = 0
             vacancies = []
@@ -36,15 +45,19 @@ class VacanciesVC: UIViewController {
         
         // data loading
         NetworkService.shared.getData(url: url) { (result) in
-            switch result {
-            case .success(let data):
-                guard let vacancies = data as? [Vacancy] else { return }
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                switch result {
+                case .success(let data):
+                    guard let vacancies = data as? [Vacancy] else { return }
                     self.vacancies += vacancies
-                    if vacancies.count != 0 { self.vacanciesPage += 1 }
+                    if vacancies.count != 0 {
+                        self.vacanciesPage += 1
+                        self.updateAvilable = true
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-             case .failure(let error):
-                print(error)
             }
         }
     }
@@ -53,7 +66,7 @@ class VacanciesVC: UIViewController {
         guard segue.identifier == DESCRIPTION_SEGUE else { return }
         guard let descriptionVC = segue.destination as? DescriptionVC else { return }
         guard let selectedVacancy = sender as? Vacancy else { return }
-        descriptionVC.vacancyDescription = selectedVacancy.description.htmlAttributed(fontName: CSS_FONT_NAME, size: 17, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+        descriptionVC.vacancy = selectedVacancy
     }
 }
 
@@ -66,10 +79,13 @@ extension VacanciesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == vacancies.count - 1 {
             // check search
+            guard updateAvilable else { return }
             guard var searchText = searchBar.text else { return }
             guard vacanciesPage != 0 else { return }
             
             if searchText == "" { searchText = DEFAULT_SEARCH }
+            print("❗️ curr page: \(vacanciesPage)")
+            updateAvilable = false
             loadVacancies(forSearchText: searchText, atPage: vacanciesPage)
         }
     }

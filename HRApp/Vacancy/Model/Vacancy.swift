@@ -27,6 +27,5 @@ class Vacancy: Decodable {
         text += "Company URL: \(companyURL ?? "no name")\n"
         text += "Company logo: \(companyLogo ?? "no logo")\n"
         text += "URL: \(url)\n"
-        print(text)
     }
 }
